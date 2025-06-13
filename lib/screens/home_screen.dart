@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key}); // sirve para identificar la clase
-  // y para que el widget pueda ser reutilizado en el árbol de widgets.
-  // El super.key es opcional, pero es una buena práctica incluirlo.
-
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key}); 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState(); // ceaca el estado del widget HomeScreen
+}
+ 
+class _HomeScreenState extends State<HomeScreen> {
+  int counter = 1; // ahora es una propiedad
+ // sirve para identificar la clase
   @override
   Widget build(BuildContext context) {
     // El método build es donde se construye la interfaz de usuario del widget.
@@ -17,6 +21,7 @@ class HomeScreen extends StatelessWidget {
     // Scaffold es un widget que proporciona una estructura básica para la aplicación.
 
     const fontSize30= TextStyle(fontSize: 30); // definimos un estilo de texto para usarlo en varios widgets
+    
 
     return  Scaffold( // le quitamos el const porque el appbar va a cambiar despues de construida la aplicacion porque el por ejemplo puede cambiar el tirulo  
       // 
@@ -29,10 +34,10 @@ class HomeScreen extends StatelessWidget {
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center, // centra los widgets en el eje vertical
       
-        children: const [
+        children:  [
           Text('clicks counter',style: fontSize30 ),
-          const SizedBox(height: 20), // espacio entre widgets
-          Text('40',style: fontSize30)
+          SizedBox(height: 20), // espacio entre widgets
+          Text('$counter',style: fontSize30)
         ],
       ),
       ),
@@ -40,7 +45,13 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Aquí puedes agregar la lógica para incrementar el contador
-          print('Floating Action Button Pressed');
+        counter = counter + 1; // incrementamos el contador
+          setState(() { // funcion anonima que se llama cuando se presiona el botón
+            // setState se usa para notificar al framework que el estado del widget ha cambiado
+            // y que debe reconstruir el widget con el nuevo estado.
+            
+          });
+           print(counter);
         },
         child: const Icon(Icons.add),
       ),
