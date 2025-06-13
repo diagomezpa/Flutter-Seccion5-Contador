@@ -41,19 +41,56 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       ),
-     // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Aquí puedes agregar la lógica para incrementar el contador
-        counter = counter + 1; // incrementamos el contador
-          setState(() { // funcion anonima que se llama cuando se presiona el botón
-            // setState se usa para notificar al framework que el estado del widget ha cambiado
-            // y que debe reconstruir el widget con el nuevo estado.
-            
-          });
-           print(counter);
-        },
-        child: const Icon(Icons.add),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Row(
+          
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // centra los botones en el eje horizontal
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                // Aquí puedes agregar la lógica para incrementar el contador
+              counter = counter + 1; // incrementamos el contador
+                setState(() { // funcion anonima que se llama cuando se presiona el botón
+                  // setState se usa para notificar al framework que el estado del widget ha cambiado
+                  // y que debe reconstruir el widget con el nuevo estado.
+                  
+                });
+               
+              },
+              child: const Icon(Icons.add),
+            ),
+
+             const SizedBox(width: 10), 
+        
+            // espacio entre los botones
+            FloatingActionButton(
+              onPressed: () {
+                // Aquí puedes agregar la lógica para reiniciar el contador
+                counter = 0; // reiniciamos el contador
+                setState(() { // funcion anonima que se llama cuando se presiona el botón
+                  // setState se usa para notificar al framework que el estado del widget ha cambiado
+                  // y que debe reconstruir el widget con el nuevo estado.
+                });
+              },
+              child: const Icon(Icons.refresh),
+            ),
+
+            const SizedBox(width: 10), // espacio entre los botones
+            FloatingActionButton(
+              onPressed: () {
+                // Aquí puedes agregar la lógica para decrementar el contador
+                counter = counter - 1; // decrementamos el contador
+                setState(() { // funcion anonima que se llama cuando se presiona el botón
+                  // setState se usa para notificar al framework que el estado del widget ha cambiado
+                  // y que debe reconstruir el widget con el nuevo estado.
+                });
+              },
+              child: const Icon(Icons.remove),
+            ),
+          ],
+        ),
       ),
     );
   }
