@@ -16,6 +16,8 @@ class HomeScreen extends StatelessWidget {
     // donde podemos agregar otros widgets como AppBar, Drawer, BottomNavigationBar, etc.
     // Scaffold es un widget que proporciona una estructura básica para la aplicación.
 
+    const fontSize30= TextStyle(fontSize: 30); // definimos un estilo de texto para usarlo en varios widgets
+
     return  Scaffold( // le quitamos el const porque el appbar va a cambiar despues de construida la aplicacion porque el por ejemplo puede cambiar el tirulo  
       // 
       appBar: AppBar(
@@ -28,9 +30,9 @@ class HomeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center, // centra los widgets en el eje vertical
       
         children: const [
-          Text('clicks counter'),
+          Text('clicks counter',style: fontSize30 ),
           const SizedBox(height: 20), // espacio entre widgets
-          Text('40')
+          Text('40',style: fontSize30)
         ],
       ),
       ),
