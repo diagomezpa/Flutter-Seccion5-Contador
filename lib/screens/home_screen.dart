@@ -36,6 +36,14 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       ),
+     // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Aquí puedes agregar la lógica para incrementar el contador
+          print('Floating Action Button Pressed');
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
